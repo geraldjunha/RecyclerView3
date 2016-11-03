@@ -50,6 +50,23 @@ public class InputActivity extends AppCompatActivity {
                     }
                 }
         );
+        hotel = (Hotel) getIntent().getSerializableExtra(MainActivity.HOTEL);
+        if (hotel != null) {
+            setTitle("Edit " + hotel.judul);
+            fillData();
+        } else {
+            setTitle("New Hotel");
+        }
+    }
+
+    private void fillData() {
+
+        etjudul.setText(hotel.judul);
+        etDeskripsi.setText(hotel.deskripsi);
+        etDeskripsi.setText(hotel.judul);
+        etLokasi.setText(hotel.deskripsi);
+        uriFoto = Uri.parse(hotel.foto);
+        ivFoto.setImageURI(uriFoto);
     }
 
     private void pickPhoto() {
